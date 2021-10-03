@@ -1,12 +1,13 @@
 // Add a title attribute to every element that has the important class, stating This is an important item
 const important = document.querySelectorAll('.important');
 for (item of important) {
-    item.title = "This is an important item"
+    item.title = "This is an important item";
 }
 
 //Select all the imgs tags and loop through them. If they have no important class, turn their display property to none.
 const images = document.querySelectorAll("img");
 for (item of images) {
+    
     if (item.classList.contains("important")) {
         item.style.display = 'none';
     }
@@ -30,3 +31,6 @@ function changeParaphColor() {
     let random = function () { return Math.floor(Math.random() * 256) }
     return "rgb(" + random() + "," + random() + "," + random()+ ")"
 }
+
+
+
