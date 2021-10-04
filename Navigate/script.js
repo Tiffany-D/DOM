@@ -5,7 +5,11 @@ const lastChild = li[li.length - 1];
 ol.insertBefore(lastChild, li[0]);
 
 //Move the <h2> of the third section in the second one and vice-versa
-const headings = document.querySelectorAll("h2");
-const third = document.getElementById("third");
-const second = document.getElementById("second");
-headings.replaceChild(third, second);
+//let sct = document.querySelectorAll("section");
+//sct.classList.add("first", "second", "third");
+
+
+//Delete the last section from the DOM, we don't need it anyways
+
+const section = document.getElementById("third");
+section.remove();
