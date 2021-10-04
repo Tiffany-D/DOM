@@ -1,11 +1,11 @@
 //Modify the script.js to create a new <section> with a random background-color for each learners in your promo. This section should contain a paragraph with the name of the learner. Those sections should be appended in the <article>
 function randomColorLearners() {
     let random = function () { return Math.floor(Math.random() * 256) }
-    let o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) /1000);
-    return "rgb(" + random() + "," + random() + "," + random() + ")"
-   
+    return "rgb(" + random() + "," + random() + "," + random() + ")" 
 }
-
+let rdmFunction = (max) => {
+   return Math.floor(Math.random() * max +1); 
+} 
 
 
 const nameOfLearners = ["Antoine Ghysens", "Aurore Remy", "Baptiste Geron", "Batsheba Deepijan", "Bruno Presti", "Fabrice Castrogiovanni", "Fanny Fraiture", "Francis François", "Frederic Van Overmeire", "JC Molhant", "Maxim K.", "Michael Tesfay", "Philippe Meulemans", "Raoni Gillet", "René", "Rouslan Boyko", "Stephane Genet", "Thomas Backers", "Tiffany Dessouroux"];
@@ -22,13 +22,22 @@ for (item of nameOfLearners) {
     section.appendChild(par);
     par.appendChild(text);
 
-    
+   
+    section.style.color = brightnessText.brightness < 105 ? "black" : "white";
     let randomColor = randomColorLearners;
     section.style.backgroundColor = randomColor();
 
 }
 
  //If the background is dark the text should be white, if the background is light the text should be black
+function brightnessText() {
+    let red = rdmFunction(255);
+    let green = rdmFunction(255);
+    let blue = rdmFunction(255);
+    let brightness = Math.sqrt((.241 * red * red) + (.691 * green * green) + (.068 * blue * blue));
+    return {"color": `rgb(${red}, ${green}, ${blue})`, "brightness": brightness}
+}
+
 
      
     
