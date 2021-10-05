@@ -1,11 +1,15 @@
 const _initTime = Date.now()
 const section = document.querySelector(".displayedsquare-wrapper");
+const body = document.querySelector('body').addEventListener('keypress', changeColor, 'space');
 
-  
 function getElapsedTime() {
  return Number((Date.now() - _initTime) / 1000).toFixed(2) + 's'
 }
 
+function changeColor() {
+    let random = function () { return Math.floor(Math.random() * 256) }
+    return "rgb(" + random() + "," + random() + "," + random()+ ")"
+}  
 
 
 function clickOnSquare(e) {
